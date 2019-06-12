@@ -115,17 +115,6 @@
               <item name="hebergement" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hebergement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hebergement" type="462c0819:PsiDirectoryNode" />
-              <item name="hebergement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hebergement" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hebergement" type="462c0819:PsiDirectoryNode" />
-              <item name="hebergement" type="462c0819:PsiDirectoryNode" />
-              <item name="env_settings" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -135,6 +124,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../trans_website" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -196,17 +186,17 @@
       <workItem from="1559910138258" duration="13731000" />
       <workItem from="1560173704823" duration="599000" />
       <workItem from="1560255672834" duration="22000" />
-      <workItem from="1560332461165" duration="464000" />
+      <workItem from="1560332461165" duration="766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17397000" />
+    <option name="totallyTimeSpent" value="17699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1046" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26040554" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26040554" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -221,7 +211,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="manage.py@hebergement" order="10" weight="0.32964602" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.33001107" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.33001107" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="14" weight="0.32964602" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
