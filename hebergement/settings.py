@@ -120,10 +120,10 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'core.User'
 
 try:
-    from .env_settings.local import *
+    from hebergement.env_settings.local import *
 except ImportError:
     print('local setting not found')
     try:
-        from .env_settings.prod import *
+        from hebergement.env_settings.prod import *
     except:
         print('prod setting not found')
