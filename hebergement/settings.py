@@ -36,12 +36,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bootstrap4',
+    'corsheaders',
+
     'core'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -111,13 +115,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
 # Custom user model
 AUTH_USER_MODEL = 'core.User'
+
+# Email
+
+EMAIL_HOST = 'SSL0.OVH.NET'
+EMAIL_HOST_PASSWORD = '$Jioshield13#Saucisse'
+EMAIL_HOST_USER = 'test@translaforet.fr'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 
 try:
     from hebergement.env_settings.local import *
@@ -127,3 +134,5 @@ except ImportError:
         from hebergement.env_settings.prod import *
     except:
         print('prod setting not found')
+
+CORS_ORIGIN_ALLOW_ALL = True

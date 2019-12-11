@@ -1,0 +1,80 @@
+{
+  "_from": "vue-scrollactive",
+  "_id": "vue-scrollactive@0.8.0",
+  "_inBundle": false,
+  "_integrity": "sha512-WHD7aGXt2nW6qOaunTkyWryKdi4gB0N5jXxCgNRsg7HEJHXm3PHR9VbDNOIakWj+/NP1euGhM71AB+0aXUltrA==",
+  "_location": "/vue-scrollactive",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-scrollactive",
+    "name": "vue-scrollactive",
+    "escapedName": "vue-scrollactive",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-scrollactive/-/vue-scrollactive-0.8.0.tgz",
+  "_shasum": "0f1b741018d7deee9fe3d120feb3ad23a8253629",
+  "_spec": "vue-scrollactive",
+  "_where": "/home/shobu/Workspace/Django/hebergement",
+  "author": {
+    "name": "Mauricio Farias Dziedzinski",
+    "email": "d.mauriciofarias@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/eddiemf/vue-scrollactive/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "bezier-easing": "^2.0.3"
+  },
+  "deprecated": false,
+  "description": "Lightweight and simple to use vue component that highlights menu items as you scroll the page, also scrolling to target section when clicked.",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.0.0-beta.4",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-html": "^4.0.5",
+    "eslint-plugin-import": "^2.14.0",
+    "vue-loader": "^15.3.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "homepage": "https://github.com/eddiemf/vue-scrollactive#readme",
+  "keywords": [
+    "vue",
+    "vue-plugin",
+    "vue-component",
+    "scrollspy",
+    "scroll",
+    "active",
+    "active-class",
+    "menu-item",
+    "highlight-menu-item"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-scrollactive.min.js",
+  "name": "vue-scrollactive",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddiemf/vue-scrollactive.git"
+  },
+  "scripts": {
+    "dev": "webpack --progress --hide-modules --mode=development",
+    "prod": "webpack --progress --hide-modules --mode=production",
+    "watch": "webpack --progress --hide-modules --watch --mode=development"
+  },
+  "title": "Vue Scrollactive",
+  "version": "0.8.0"
+}

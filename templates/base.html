@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Héberge un SDF</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'core/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'core/css/agency.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+<div id="nav">
+    <!-- Navigation -->
+    <scrollactive active-class="active">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a v-bind:class="{'navbar-brand': true, 'scrollactive-item': windowLoc === '/home'}"
+                   href="{% url 'coreHome' %}#page-top">Héberge un SDF</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a v-bind:class="{'nav-link': true, 'scrollactive-item': windowLoc === '/home'}"
+                               href="{% url 'coreHome' %}#more">En savoir plus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'coreHostedRegister' %}">Je veut être héberger</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'coreHostRegister' %}">Je veut héberger</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </scrollactive>
+
+    <!-- Header -->
+    <header class="masthead" style="background-image: url('{% block masthead_image %}{% endblock %}')">
+        {% block masthead_body %}
+
+        {% endblock %}
+    </header>
+</div>
+
+{% block body %}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <span class="copyright text-light">Copyright &copy; bleh</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks">
+                    <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'core/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{% static 'core/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Contact form JavaScript -->
+<script src="{% static 'core/js/jqBootstrapValidation.js' %}"></script>
+
+<script src="{% static 'core/js/vue.js' %}"></script>
+<script src="{% static 'core/js/vue-scrollactive/dist/vue-scrollactive.min.js' %}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'core/js/agency.js' %}"></script>
+<script src="{% static 'core/js/bootstrap-filestyle.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.2.2/dist/latest/bootstrap-autocomplete.min.js"></script>
+
+
+<script>
+    new Vue({
+        delimiters: ['[[', ']]'],
+        el: '#nav',
+        data: {
+            baseUrl: "{% url 'coreHome' %}",
+            windowLoc: window.location.pathname
+        },
+        mounted: function () {
+            if (this.windowLoc === '/home') {
+                this.baseUrl = '#page-top'
+            }
+        },
+    })
+</script>
+{% block js %}
+{% endblock %}
+
+</body>
+
+</html>

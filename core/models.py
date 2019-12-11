@@ -7,10 +7,13 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     phone_number = models.CharField(max_length=10)
     description = models.TextField(blank=False, null=True)
+    city_name = models.CharField(max_length=200)
+    city_lat = models.CharField(max_length=100)
+    city_lng = models.CharField(max_length=100)
+    # TODO vérifier que la localisation n'existe pas avant de la créer
 
 
 class Hosted(models.Model):
-    localisation = models.CharField(max_length=100)
     localisation_radius = models.IntegerField()
     addictions = models.TextField(blank=True, null=True)
     video = models.FileField(blank=True, null=True)
@@ -32,8 +35,6 @@ class Hosted(models.Model):
 
 
 class Host(models.Model):
-    ville = models.CharField(max_length=100)
-
     host = models.OneToOneField('core.User', on_delete=models.CASCADE, related_name='host', null=True, blank=True,
                                 default=None)
 
@@ -47,3 +48,12 @@ class Host(models.Model):
             raise FieldError("Un Utilisateur ne peut être à la fois Host et Hosted")
         except Host.DoesNotExist:
             super().save(force_insert, force_update, using, update_fields)
+
+
+class City(models.Model):
+    name = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def __str__(self):
+        return self.name
