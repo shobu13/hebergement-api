@@ -21,7 +21,6 @@ from .views import *
 urlpatterns = [
     path('', lambda f: redirect('/home')),
     path('home', home, name='coreHome'),
-    path('test', test, name='coreTest'),
     path('hosted/register/', hosted_register, name="coreHostedRegister"),
     path('host/register/', host_register, name="coreHostRegister")
 ]

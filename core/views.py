@@ -13,10 +13,6 @@ def home(request):
     return render(request, 'core/home.html')
 
 
-def test(request):
-    return render(request, 'core/home.html')
-
-
 def hosted_register(request):
     title = "Formulaire d'inscription : Hébergé"
     if request.method == 'POST':
@@ -71,7 +67,6 @@ def host_register(request):
         form = BaseUserForm(request.POST)
         if form.is_valid():
             try:
-                print(form.cleaned_data)
                 data = form.cleaned_data
                 gmap = googlemaps.Client(key='AIzaSyDTWhyU1bDH84_PXA_sN3TbB0_mRCPlawU')
                 results = gmap.find_place(data['city_id'], 'textquery')['candidates']
@@ -91,7 +86,7 @@ def host_register(request):
                     user.description = data['description']
 
                     new_host = Host()
-                    new_host.hosted = user
+                    new_host.host = user
 
                     user.save()
                     new_host.save()

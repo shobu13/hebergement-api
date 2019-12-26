@@ -1,7 +1,12 @@
 from django.core.exceptions import FieldError, ObjectDoesNotExist
+from django.core.mail import send_mail
 from django.db import models
 
 from django.contrib.auth.models import AbstractUser
+
+import geopy.distance
+from django.db.models import signals
+from django.dispatch import receiver
 
 
 class User(AbstractUser):
@@ -33,6 +38,9 @@ class Hosted(models.Model):
         except Host.DoesNotExist:
             super().save(force_insert, force_update, using, update_fields)
 
+    def create(self):
+        pass
+
 
 class Host(models.Model):
     host = models.OneToOneField('core.User', on_delete=models.CASCADE, related_name='host', null=True, blank=True,
@@ -46,7 +54,7 @@ class Host(models.Model):
         try:
             self.host.hosted
             raise FieldError("Un Utilisateur ne peut être à la fois Host et Hosted")
-        except Host.DoesNotExist:
+        except Hosted.DoesNotExist:
             super().save(force_insert, force_update, using, update_fields)
 
 
@@ -57,3 +65,23 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+
+
+@receiver(signals.post_save, sender=Host)
+def host_post_save(sender, instance, created, *args, **kwargs):
+    if created:
+        hosteds = [i.hosted.email for i in Hosted.objects.all() if geopy.distance.vincenty(
+            (i.hosted.city_lat, i.hosted.city_lng),
+            (instance.host.city_lat, instance.host.city_lng)
+        ) <= i.localisation_radius]
+        send_mail('un hébergeur correspondant a vos critères a été trouvé !', instance.host.email,
+                  'contact@heberge-un-sdf.fr', hosteds)
+
+
+@receiver(signals.post_save, sender=Hosted)
+def hosted_post_save(sender, instance, created, *args, **kwargs):
+    if created:
+        hosts = [i.host.email for i in Host.objects.all() if geopy.distance.vincenty(
+            (i.host.city_lat, i.host.city_lng),
+            (instance.hosted.city_lat, instance.hosted.city_lng)
+        ) <= i.localisation_radius]
